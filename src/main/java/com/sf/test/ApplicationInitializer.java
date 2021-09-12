@@ -17,6 +17,9 @@ public class ApplicationInitializer implements WebApplicationInitializer {
 		
 		ServletRegistration.Dynamic dynamic = servletContext.addServlet("swaggger",
 				new DispatcherServlet(webApplicationContext));
+		
+		dynamic.setLoadOnStartup(1);
+		dynamic.addMapping("/");
 	
 	}
 }
