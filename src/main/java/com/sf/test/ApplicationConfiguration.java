@@ -7,6 +7,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.view.InternalResourceView;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @ComponentScan(basePackages = "com.sf.test")
@@ -19,10 +20,12 @@ public class ApplicationConfiguration extends WebMvcConfigurationSupport {
 	}
 	
 	@Bean
-	public InternalResourceView jspViewResolver(){
+	public InternalResourceViewResolver jspViewResolver(){
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
 		viewResolver.setPrefix("WEB-INF/jsp/");
 		viewResolver.setSuffix(".jsp");
-	
+		viewResolver.setViewClass(JstlView.class);
+		
+		return viewResolver;
 	}
 }
