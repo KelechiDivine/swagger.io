@@ -14,7 +14,7 @@ public class ApplicationInitializer implements WebApplicationInitializer {
 		
 		//bootstrap the dispatcher servlet
 		AnnotationConfigWebApplicationContext webApplicationContext = new AnnotationConfigWebApplicationContext();
-		
+		webApplicationContext.register(ApplicationConfiguration.class);
 		ServletRegistration.Dynamic dynamic = servletContext.addServlet("swaggger",
 				new DispatcherServlet(webApplicationContext));
 		
